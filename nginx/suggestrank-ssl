@@ -1,0 +1,30 @@
+server {
+       listen 443 ssl;
+       listen [::]:443 ssl;
+
+       server_name suggestrank.com;
+
+       ssl_certificate   /etc/letsencrypt/live/suggestrank.com/fullchain.pem;
+       ssl_certificate_key   /etc/letsencrypt/live/suggestrank.com/privkey.pem;
+       ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+
+       root /root/car-compare/ui-app/build;
+       index index.html;
+
+        location / {
+        proxy_pass http://localhost:81;
+        }
+        location /api {
+        proxy_pass http://localhost:5000;
+        }
+
+}
+
+
+server {
+    listen 80;
+
+    server_name _;
+
+    return 301 https://$host$request_uri;
+}
