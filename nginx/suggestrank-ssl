@@ -19,6 +19,11 @@ server {
         proxy_pass http://localhost:5000;
         }
 
+	location /blogs/ {
+        root /root/car-compare/ui-app/build/;
+        }
+
+
 }
 
 
