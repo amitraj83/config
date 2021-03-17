@@ -9,7 +9,7 @@ server {
        ssl_certificate_key   /etc/letsencrypt/live/suggestrank.com/privkey.pem;
        ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
 
-       root /root/car-compare/ui-app/build;
+       root /root/car-compare/ui/public/;
        index index.html;
 
         location / {
@@ -20,10 +20,23 @@ server {
         }
 
 	location /blogs/ {
-        root /root/car-compare/ui-app/build/;
+        root /root/car-compare/ui/public/blogs/;
+        }
+
+	location /wpblog/ {
+        root /var/www/suggestrank/wp/;
+	try_files $uri $uri/ /index.php$is_args$args;
         }
 
 
+	location ~ \.php$ {
+     	   	include /etc/nginx/snippets/fastcgi-php.conf;
+        	fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+     	}
+
+    	location ~ /\.ht {
+        	deny all;
+    	}
 }
 
 
