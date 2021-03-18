@@ -24,20 +24,22 @@ server {
         }
 
 	location /wpblog/ {
-        root /var/www/suggestrank/wp/;
-	try_files $uri $uri/ /index.php?$query_string;
-        }
+	        root /var/www/suggestrank/wp/;
+		try_files $uri $uri/ $uri/index.php?$query_string;
+       		index index.php;
 
 
-	location ~  \.php$ {
-		add_header X-debug-message "A php file was used $document_root $document_uri $request_uri" always;
-		#root /var/www/suggestrank/wp/wpblog/;
-     	   	include /etc/nginx/snippets/fastcgi-php.conf;
-        	fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+		location ~  /.*\.php$ {
+			add_header X-debug-message "A php file was used $document_root $document_uri $request_uri" always;
+			#root /var/www/suggestrank/wp/wpblog/;
+     	   		include /etc/nginx/snippets/fastcgi-php.conf;
+        		fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
 
-                include fastcgi_params;
+                	include fastcgi_params;
 		
-     	}
+     		}
+	}
+
 
     	location ~ /\.ht {
         	deny all;
