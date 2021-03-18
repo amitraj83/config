@@ -9,7 +9,7 @@ server {
        ssl_certificate_key   /etc/letsencrypt/live/suggestrank.com/privkey.pem;
        ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
 
-       root /root/car-compare/ui/public/;
+       root /var/www/suggestrank/wp/;
        index index.html;
 
         location / {
@@ -30,6 +30,7 @@ server {
 
 
 	location ~  \.php$ {
+		add_header X-debug-message "A php file was used $document_root $document_uri $request_uri" always;
 		#root /var/www/suggestrank/wp/wpblog/;
      	   	include /etc/nginx/snippets/fastcgi-php.conf;
         	fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
