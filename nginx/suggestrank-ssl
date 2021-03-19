@@ -23,7 +23,7 @@ server {
 
 	location  ~ ^/blog(/.*)?$ {
 	        root /var/www/suggestrank/wp/;
-		try_files $uri $uri/ /index.php?$query_string;
+		try_files $uri $uri/ /blog/index.php?$query_string;
        		index index.php index.html;
 
 
