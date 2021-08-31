@@ -106,7 +106,7 @@ location "/compare/cars/3261/Scion-FR-S-2017-vs-Scion-tC-2017-vs-Scion-FR-S-2017
 
 location "/compare/cars/8327/Toyota-Tacoma-2016-vs-Toyota-Sienna-2016-vs-Toyota-Tundra-2016"   { return 404; } 
 
-location "/compare/cars/8296/Land   { return 404; } 
+location "/compare/cars/8296/Land"   { return 404; } 
 
 location "/compare/cars/1207/Fiat-Seicento-2003-vs-Fiat-Punto-2003-vs-Fiat-Punto-2003"   { return 404; } 
 
