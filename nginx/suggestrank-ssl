@@ -4481,6 +4481,7 @@ location  "/compare/cars/186/Isuzu-Minx-1953-vs-Skoda-Octavia-2004-vs-Tata-Nano-
 location  "/compare/cars/97/Suzuki-Liana-2001-vs-Honda-Life-2004-vs-Nissan-Sentra-2019"  { return 404; }
 location  "/compare/cars/[cid]/[filename]"  { return 404; }
 location  "/compare/cars/115/BMW-4%20Series-2019-vs-BMW-5%20Series-2019-vs-BMW-2%20Series-2019"  { return 404; }
+location  "/compare/cars/147/Opel-Rekord-1970-vs-Audi-A3-2016-vs-BMW-530-2009" { return 404; }
 }
 
 
