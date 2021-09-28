@@ -21989,3 +21989,23 @@ server {
     server_name www.suggestrank.com;
     return 301 $scheme://suggestrank.com$request_uri;
 }
+
+server {
+   listen 443 ssl http2;
+       listen [::]:443 ssl http2;
+
+       server_name fynepics.com;
+
+       ssl_certificate   /etc/letsencrypt/live/fynepics.com/fullchain.pem;
+       ssl_certificate_key   /etc/letsencrypt/live/fynepics.com/privkey.pem;
+       ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+
+       root /var/www/fynepics/;
+       index index.html;
+
+        location / {
+             try_files $uri $uri/ =404;
+        }
+
+
+}
